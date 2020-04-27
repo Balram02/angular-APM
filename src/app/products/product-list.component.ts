@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
   pageTitle: string = 'Product List';
-
+  displayImage: boolean = false;
   products: any[] = [
     {
       productId: 1,
@@ -29,4 +29,8 @@ export class ProductListComponent {
       imageUrl: 'assets/images/garden_cart.png',
     },
   ];
+
+  toggleImage() {
+    this.displayImage = !this.displayImage;
+  }
 }
