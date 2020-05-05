@@ -1,7 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <h1 style="text-align: center; margin: 10px;">
-    {{ title }}
-  </h1>
-  <pm-product></pm-product>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">{{ title }}</a>
+  <ul class="nav nav-pills">
+    <li><a class="nav-link" [routerLink]="['/welcome']">Home</a></li>
+    <li><a class="nav-link" [routerLink]="['/products']">Product List</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
