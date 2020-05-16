@@ -11,13 +11,17 @@ import { ConvertToCharacter } from './shared/convert-to-character';
 import { StarComponent } from './shared/star.component';
 import { ProductDetailsComponent } from './products/product-details.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { ProductDetailsGuard } from './products/product-details.guard';
 
 @NgModule({
   declarations: [AppComponent, ProductListComponent, StarComponent, ConvertToCharacter, ProductDetailsComponent, WelcomeComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot([
 
     { path: 'products', component: ProductListComponent },
-    { path: 'product/:id', component: ProductDetailsComponent },
+    {
+      path: 'product/:id', component: ProductDetailsComponent,
+      canActivate: [ProductDetailsGuard]
+    },
     { path: 'welcome', component: WelcomeComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' }

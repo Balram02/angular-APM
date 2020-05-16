@@ -41,7 +41,11 @@
                 *ngIf="displayImage"
               />
             </td>
-            <td>{{ product.productName }}</td>
+            <td>
+              <a [routerLink]="['/product', product.productCode]">{{
+                product.productName
+              }}</a>
+            </td>
             <td>
               {{ product.productCode | uppercase | convertToCharacter: "":"#" }}
             </td>
