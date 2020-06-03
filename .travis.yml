@@ -7,6 +7,6 @@ branches:
     - master
 
 before_install:
-  - docker build -t balram02/APM -f Docker.dev .
+  - docker build -t balram02/apm -f Dockerfile.dev .
   # script:
 #   - docker run balram02/APM
