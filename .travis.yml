@@ -8,5 +8,5 @@ branches:
 
 before_install:
   - docker build -t balram02/APM -f Docker.dev .
-# script:
+  # script:
 #   - docker run balram02/APM
