@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+before_install:
+  - docker build -t balram02/APM -f Docker.dev .
+# script:
+#   - docker run balram02/APM
