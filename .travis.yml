@@ -9,11 +9,11 @@ branches:
   only:
     - master
 
-before_install:
-  - docker build -t balram02/apm -f Dockerfile.dev .
+# before_install:
+#   - docker build -t balram02/apm -f Dockerfile.dev .
 
-script:
-  - docker run balram02/apm
+# script:
+#   - docker run balram02/apm
 
 deploy:
   provider: elasticbeanstalk
