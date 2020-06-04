@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - "14"
 sudo: required
+# dist: trusty
 services:
   - docker
 
@@ -9,7 +10,31 @@ branches:
   only:
     - master
 
+# before_script:
+#   - export CHROME_BIN=/usr/bin/google-chrome
+#   - export DISPLAY=:99.0
+#   - sh -e /etc/init.d/xvfb start
+#   - sudo apt-get update
+#   - sudo apt-get install -y libappindicator1 fonts-liberation
+#   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#   - sudo dpkg -i google-chrome*.deb
+
 before_install:
   - docker build -t balram02/apm -f Dockerfile.dev .
-  # script:
-#   - docker run balram02/APM
+  script:
+  - docker run balram02/apm
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-apm"
+  env: "DockerApm-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-337544137563"
+  bucket_path: "docker-apm"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
