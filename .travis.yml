@@ -1,3 +1,6 @@
+language: node_js
+node_js:
+  - "14"
 sudo: required
 services:
   - docker
@@ -6,7 +9,21 @@ branches:
   only:
     - master
 
-before_install:
-  - docker build -t balram02/APM -f Docker.dev .
+# before_install:
+#   - docker build -t balram02/apm -f Dockerfile.dev .
+
 # script:
-#   - docker run balram02/APM
+#   - docker run balram02/apm
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-apm"
+  env: "DockerApm-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-337544137563"
+  bucket_path: "docker-apm"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
