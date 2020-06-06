@@ -19,7 +19,7 @@ deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
   app: "docker-apm"
-  env: "DockerApm-env"
+  env: "DockerApm-env-1"
   bucket_name: "elasticbeanstalk-ap-south-1-337544137563"
   bucket_path: "docker-apm"
   skip_cleanup: true
