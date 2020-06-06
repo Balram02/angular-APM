@@ -22,6 +22,7 @@ deploy:
   env: "DockerApm-env"
   bucket_name: "elasticbeanstalk-ap-south-1-337544137563"
   bucket_path: "docker-apm"
+  skip_cleanup: true
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
